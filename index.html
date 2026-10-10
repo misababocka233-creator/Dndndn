@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101222"><title>Mr. Dudec Clicker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+<header><span class="eyebrow">ТИСНИ. ЛОВИ БОНУСИ. БИЙ РЕКОРД.</span><h1>Mr. Dudec <span>Clicker</span></h1><p>Не зупиняйся більше ніж на секунду!</p></header>
+<section class="stats" aria-label="Статистика">
+<div><span>РАХУНОК</span><strong id="score">0</strong></div>
+<div><span>МОНЕТИ 🪙</span><strong id="total-coins">0</strong></div>
+<div><span>РЕКОРД 🏆</span><strong id="best-score">0</strong></div>
+</section>
+<nav class="menu-btns" aria-label="Меню гри"><button id="btn-skins">🛍 Магазин</button><button id="btn-settings">⚙ Налаштування</button><button id="btn-pause" disabled>Ⅱ Пауза</button></nav>
+<section class="arena" aria-label="Ігрова зона">
+<div class="arena-label"><span id="state-label">ГОТОВИЙ ДО СТАРТУ</span><span id="time-label">1,00 с</span></div>
+<div class="timer" role="progressbar" aria-label="Час до кінця забігу" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><div id="time-fill"></div></div>
+<div id="dudec-box" class="game-container"><div class="orbit"></div><button id="tap-button" aria-label="Натиснути на Дудеця"><img id="dudec-img" alt="Mr. Dudec" draggable="false"><span class="tap-label">ТАП!</span></button></div>
+<p id="hint">Натисни на Дудеця, щоб почати</p><p class="small">Тап або пробіл · 20% шанс отримати +10</p>
+</section>
+<p id="notice" class="notice" role="status" aria-live="polite"></p>
+<footer>Монети та покупки зберігаються в цьому браузері.</footer>
+</main>
+<dialog id="modal-skins" aria-labelledby="shop-title"><form method="dialog"><button class="close" aria-label="Закрити магазин">✕</button></form><h2 id="shop-title">Магазин Дудеця</h2><p>Твій баланс: <strong id="shop-balance">0</strong> 🪙</p>
+<label for="select-skin">СКІН ПЕРСОНАЖА</label><select id="select-skin"></select>
+<label for="select-skel">БОНУСНІ СКЕЛЕТИ</label><select id="select-skel"></select>
+<label for="select-music">МУЗИКА</label><select id="select-music"></select>
+<p class="small">Скелети з’являються під час гри. Натисни на них: шанс +10 становить 50%.</p><p id="purchase-summary"></p><p id="shop-error" class="error" role="alert"></p><button id="save-skins" class="primary wide">Застосувати</button></dialog>
+<dialog id="modal-settings" aria-labelledby="settings-title"><form method="dialog"><button class="close" aria-label="Закрити налаштування">✕</button></form><h2 id="settings-title">Налаштування</h2><label for="volume-range">Гучність: <span id="volume-value">50%</span></label><input type="range" id="volume-range" min="0" max="1" step="0.05"><p class="small">Якщо трек відсутній, гра працює без музики.</p><button id="save-settings" class="primary wide">Зберегти</button></dialog>
+<dialog id="modal-pause" aria-labelledby="pause-title"><h2 id="pause-title">Перепочинок ☕</h2><p>Рахунок збережено. Після продовження матимеш секунду на наступний тап.</p><button id="resume-btn" class="primary wide">Продовжити</button></dialog>
+<dialog id="modal-gameover" aria-labelledby="over-title"><h2 id="over-title">Забіг завершено!</h2><p>Твій рахунок</p><strong id="final-score" class="final-score">0</strong><p>Зароблено: <strong id="earned-coins">0</strong> 🪙</p><p id="record-message"></p><button id="restart-btn" class="primary wide">Ще один забіг ↻</button><button id="over-shop" class="wide">Відкрити магазин</button></dialog>
+<script src="script.js"></script>
+</body></html>
